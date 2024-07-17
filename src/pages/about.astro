@@ -1,0 +1,146 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title='Music'>
+	<article>
+		<div class='textWrapper'>
+			<p>
+				<span class='highlight'>Henrii Havaas</span> was born in <span class='highlight'>Oslo</span
+				>, Norway, and discovered the joy of photography as a young girl.
+
+				<p>
+					Everything she knows about <span class='highlight'>photography</span> is self-taught. She has
+					a special eye for capturing a truthful essence of nature and people in her photos. Natural
+					light is her favorite style to use and to create images, that exude purity, liveliness, and
+					simplicity.
+				</p>
+
+				<p>
+					She focuses on <span class='highlight'>Fine Art Photography</span> and is driven by storytelling
+					and authenticity.
+				</p>
+
+				<p>
+					In addition to being a photographer, she is also a <span class='highlight'
+						>music designer</span
+					>, <span class='highlight'>embodiment teacher</span> and
+					<span class='highlight'>facilitator of art and culture events</span>.
+				</p>
+
+				<p>
+					Henrii is currently based in Oslo and part of the Selah Sleep team, a wake-up light and
+					sound project.
+				</p>
+			</p>
+		</div>
+
+		<div class='textWrapper'>
+			<p>
+				<span class='highlight'>Henrii Havaas</span> was born in <span class='highlight'>Oslo</span
+				>, Norway, and discovered the joy of photography as a young girl.
+
+				<p>
+					Everything she knows about <span class='highlight'>photography</span> is self-taught. She has
+					a special eye for capturing a truthful essence of nature and people in her photos. Natural
+					light is her favorite style to use and to create images, that exude purity, liveliness, and
+					simplicity.
+				</p>
+
+				<p>
+					She focuses on <span class='highlight'>Fine Art Photography</span> and is driven by storytelling
+					and authenticity.
+				</p>
+
+				<p>
+					In addition to being a photographer, she is also a <span class='highlight'
+						>music designer</span
+					>, <span class='highlight'>embodiment teacher</span> and
+					<span class='highlight'>facilitator of art and culture events</span>.
+				</p>
+
+				<p>
+					Henrii is currently based in Oslo and part of the Selah Sleep team, a wake-up light and
+					sound project.
+				</p>
+			</p>
+		</div>
+	</article>
+</Layout>
+<style>
+	@keyframes fadeInFromBottom {
+		from {
+			transform: translateY(10px);
+			opacity: 0;
+		}
+		to {
+			transform: translateY(0);
+			opacity: 1;
+		}
+	}
+
+	@keyframes fadeInFromTop {
+		from {
+			transform: translateY(-10px);
+			opacity: 0;
+		}
+		to {
+			transform: translateY(0);
+			opacity: 1;
+		}
+	}
+
+	article {
+		display: flex;
+		height: 100%;
+		padding: 0 2rem;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.textWrapper {
+		max-width: 450px;
+		padding: 5rem;
+		border-inline: 1px solid transparent;
+		border-image: linear-gradient(
+				to bottom,
+				#a2682a 0%,
+				#be8c3c 8%,
+				#be8c3c 18%,
+				#d3b15f 27%,
+				/* #faf0a0 35%, */ /* #ffffc2 40%, */ /* #faf0a0 50%, */ #d3b15f 58%,
+				#be8c3c 67%,
+				#b17b32 77%,
+				#bb8332 83%,
+				#d4a245 88%,
+				#e1b453 93%,
+				#a4692a 100%
+			)
+			1;
+		background: linear-gradient(
+			to bottom,
+			transparent 0%,
+			rgba(0, 0, 0, 0.5) 50%,
+			transparent 100%
+		);
+
+		&:nth-child(1) {
+			animation: fadeInFromTop 0.5s;
+		}
+
+		&:nth-child(2) {
+			animation: fadeInFromBottom 0.5s;
+			margin-left: -1px;
+			margin-top: 10rem;
+		}
+	}
+
+	p {
+		font-size: 1.1rem;
+		text-align: justify;
+	}
+
+	.highlight {
+		font-weight: 700;
+	}
+</style>

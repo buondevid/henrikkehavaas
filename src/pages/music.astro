@@ -1,0 +1,142 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title='Music'>
+	<article>
+		<span id='x-techno'>Techno</span>
+		<iframe
+			width='50%'
+			height='300'
+			allow='autoplay'
+			src='https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1701381009&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true'
+		></iframe><div
+			style='font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;'
+		>
+			<a
+				href='https://soundcloud.com/boomfestival'
+				title='Boom Festival'
+				target='_blank'
+				style='color: #cccccc; text-decoration: none;'>Boom Festival</a
+			> · <a
+				href='https://soundcloud.com/boomfestival/henrii-havaas-the-gardens-boom-festival-2023'
+				title='Henrii Havaas - The Gardens - Boom Festival 2023'
+				target='_blank'
+				style='color: #cccccc; text-decoration: none;'
+				>Henrii Havaas - The Gardens - Boom Festival 2023</a
+			>
+		</div>
+		<iframe
+			width='50%'
+			height='300'
+			allow='autoplay'
+			src='https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1701381009&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true'
+		></iframe>
+		<span id='x-ambient'>Ambient</span>
+
+		<iframe
+			width='50%'
+			height='300'
+			allow='autoplay'
+			src='https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1701381009&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true'
+		></iframe>
+		<iframe
+			width='50%'
+			height='300'
+			allow='autoplay'
+			src='https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1701381009&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true'
+		></iframe>
+		<span id='x-dance'>Dance</span>
+
+		<iframe
+			width='50%'
+			height='300'
+			allow='autoplay'
+			src='https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1701381009&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true'
+		></iframe>
+
+		<iframe
+			width='50%'
+			height='300'
+			allow='autoplay'
+			src='https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1701381009&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true'
+		></iframe>
+
+		<iframe
+			width='50%'
+			height='300'
+			allow='autoplay'
+			src='https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1701381009&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true'
+		></iframe>
+
+		<iframe
+			width='50%'
+			height='300'
+			allow='autoplay'
+			src='https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1701381009&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true'
+		></iframe>
+
+		<iframe
+			width='50%'
+			height='300'
+			allow='autoplay'
+			src='https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1701381009&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true'
+		></iframe>
+		<aside>
+			<a href='#x-techno'>Techno</a>
+			<a href='#x-ambient'>Ambient</a>
+			<a href='#x-dance'>Dance</a>
+		</aside>
+	</article>
+</Layout>
+<style>
+	article {
+		display: flex;
+		margin-block: 40px;
+		gap: 40px;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		scroll-behavior: smooth;
+	}
+
+	span {
+		/* align-self: flex-start; */
+		/* margin-left: 20vw; */
+
+		&:before {
+			content: '';
+			display: block;
+			height: 1px;
+			width: 100%;
+			margin-bottom: 0.3rem;
+			background-color: white;
+			transition: scale 1s;
+		}
+
+		&:target::before {
+			scale: 3;
+		}
+	}
+
+	iframe {
+		border: none;
+		opacity: 0.5;
+	}
+
+	aside {
+		position: fixed;
+		display: flex;
+		right: 5dvh;
+		top: 50%;
+		bottom: 50%;
+		margin-top: 1rem;
+		gap: 2rem;
+		flex-direction: column;
+	}
+
+	a {
+		text-decoration: none;
+		color: inherit;
+	}
+</style>

@@ -1,0 +1,80 @@
+---
+const pathname = new URL(Astro.request.url).pathname;
+const currentPath = pathname.slice(1);
+---
+
+<nav>
+	<a class:list={[{ active: currentPath === 'contacts' }]} href='/contacts'>Contacts</a>
+	<a class:list={[{ active: currentPath === 'music' }]} href='/music'>Music</a>
+	<a class:list={[{ active: currentPath === 'visual-art' }]} href='/visual-art'>Visual art</a>
+	<a class:list={[{ active: currentPath === 'about' }]} href='/about'>About</a>
+	<a class:list={[{ active: currentPath === '' }]} href='/' class='home'>Henrikke Havaas</a>
+</nav>
+
+<style>
+	@keyframes MoveBackgroundPosition {
+		0% {
+			background-position: 0% 50%;
+		}
+
+		50% {
+			background-position: 100% 50%;
+		}
+
+		100% {
+			background-position: 0% 50%;
+		}
+	}
+
+	nav {
+		display: flex;
+		margin-right: 7dvh;
+		margin-top: 7dvh;
+		padding-bottom: 5vh;
+		gap: 2rem;
+		justify-content: end;
+		align-items: baseline;
+		font-family: quicksand, sans-serif;
+	}
+
+	a {
+		text-decoration: none;
+		color: white;
+
+		&:not(.home) {
+			font-size: 1rem;
+		}
+	}
+
+	.home {
+		margin-left: 2rem;
+		color: white;
+		text-decoration: none;
+		font-size: 1.5rem;
+		font-weight: 300;
+		/* letter-spacing: 3px; */
+	}
+
+	.active {
+		background-image: repeating-linear-gradient(
+			to right,
+			#a2682a 0%,
+			#be8c3c 8%,
+			#be8c3c 18%,
+			#d3b15f 27%,
+			/* #faf0a0 35%, */ /* #ffffc2 40%, */ /* #faf0a0 50%, */ #d3b15f 58%,
+			#be8c3c 67%,
+			#b17b32 77%,
+			#bb8332 83%,
+			#d4a245 88%,
+			#e1b453 93%,
+			#a4692a 100%
+		);
+		background-size: 150%;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+		filter: drop-shadow(0 0 1px rgba(255, 200, 0, 0.3));
+		animation: MoveBackgroundPosition 6s ease-in-out infinite;
+	}
+</style>
