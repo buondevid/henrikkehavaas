@@ -3,10 +3,10 @@ const pathname = new URL(Astro.request.url).pathname;
 const currentPath = pathname.slice(1);
 console.log('🔥 ~ currentPath:', currentPath);
 
-const hasSubmenu = ['henrikkehavaas/music', 'henrikkehavaas/photography'].includes(currentPath);
+const isMusic = pathname.includes('music');
+const isPhotography = pathname.includes('photography');
 
-const isMusic = currentPath === 'henrikkehavaas/music';
-const isPhotography = currentPath === 'henrikkehavaas/photography';
+const hasSubmenu = isMusic || isPhotography;
 ---
 
 <button type='button' aria-label='Toggle Navigation' class='hamburger'></button>
