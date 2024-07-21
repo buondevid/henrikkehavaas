@@ -1,80 +1,211 @@
 ---
 const pathname = new URL(Astro.request.url).pathname;
 const currentPath = pathname.slice(1);
+console.log('🔥 ~ currentPath:', currentPath);
+
+const hasSubmenu = ['henrikkehavaas/music', 'henrikkehavaas/photography'].includes(currentPath);
+
+const isMusic = currentPath === 'henrikkehavaas/music';
+const isPhotography = currentPath === 'henrikkehavaas/photography';
 ---
 
-<nav>
-	<a class:list={[{ active: currentPath === 'contacts' }]} href='/contacts'>Contacts</a>
-	<a class:list={[{ active: currentPath === 'music' }]} href='/music'>Music</a>
-	<a class:list={[{ active: currentPath === 'visual-art' }]} href='/visual-art'>Visual art</a>
-	<a class:list={[{ active: currentPath === 'about' }]} href='/about'>About</a>
-	<a class:list={[{ active: currentPath === '' }]} href='/' class='home'>Henrikke Havaas</a>
+<button type='button' aria-label='Toggle Navigation' class='hamburger'></button>
+<nav id='main-nav'>
+	<a class:list={[{ active: currentPath === '' }]} href='/henrikkehavaas/' class='home'
+		>HENRIKKE HAVAAS</a
+	>
+	<a class:list={[{ active: currentPath === 'about' }]} href='/henrikkehavaas/about'>About</a>
+	<a class:list={[{ active: currentPath === 'music' }]} href='/henrikkehavaas/music'>Music</a>
+	<a class:list={[{ active: currentPath === 'photography' }]} href='/henrikkehavaas/photography'
+		>Photography</a
+	>
+	<a class:list={[{ active: currentPath === 'contacts' }]} href='/henrikkehavaas/contacts'
+		>Contacts</a
+	>
+	<span class:list={['divider', { hasSubmenu }]}></span>
+	{
+		isMusic && (
+			<>
+				<a href='#music-hypnotic-deep'>Hypnotic and Deep</a>
+				<a href='#music-ambient'>Ambient</a>
+				<a href='#music-organic-downbeat'>Organic Downbeat</a>
+				<a href='#music-sound-art'>Sound Art</a>
+			</>
+		)
+	}
+	{
+		isPhotography && (
+			<>
+				<a href='#photography-abstract-visions'>Abstract Visions</a>
+				<a href='#photography-larvik'>Larvik Ocean</a>
+				<a href='#photography-maternity'>Maternity</a>
+				<a href='#photography-nude'>Nude</a>
+				<a href='#photography-portraits'>Portraits</a>
+				<a href='#photography-travels'>Travels</a>
+				<a href='#photography-press'>Press</a>
+			</>
+		)
+	}
 </nav>
 
+<script is:inline data-astro-rerun>
+	document.addEventListener(
+		'astro:page-load',
+		() => {
+			const hamburger = document.querySelector('.hamburger');
+
+			const toggleMobileMenu = (event) => {
+				document.documentElement.classList.toggle('mobileMenuOpen');
+			};
+
+			hamburger.addEventListener('click', toggleMobileMenu);
+		},
+		{ once: true }
+	);
+</script>
+
 <style>
-	@keyframes MoveBackgroundPosition {
-		0% {
-			background-position: 0% 50%;
+	@keyframes scaleX {
+		from {
+			transform: scaleX(0);
 		}
-
-		50% {
-			background-position: 100% 50%;
-		}
-
-		100% {
-			background-position: 0% 50%;
+		to {
+			transform: scaleX(2);
 		}
 	}
 
 	nav {
+		grid-area: nav;
+		z-index: 1;
+
 		display: flex;
-		margin-right: 7dvh;
-		margin-top: 7dvh;
+		height: fit-content;
+		margin: 5dvh 5dvw 0 5dvw;
 		padding-bottom: 5vh;
-		gap: 2rem;
-		justify-content: end;
-		align-items: baseline;
-		font-family: quicksand, sans-serif;
+		gap: 0.5rem;
+		flex-direction: column;
+		align-items: end;
+		font-family: poppins, sans-serif;
+		overflow-x: hidden;
+
+		@media (max-width: 768px) {
+			position: fixed;
+			top: 0;
+			bottom: 0;
+			right: 0;
+			margin-top: 8dvh;
+			transform: translateX(150%);
+			transition: transform 0.3s ease-in-out;
+			/* background: linear-gradient(to right, #fbbfbe 0%, #f78a8a 100%); */
+
+			:root.mobileMenuOpen & {
+				transform: translateX(0);
+			}
+		}
+	}
+
+	.hamburger {
+		grid-area: content;
+
+		position: fixed;
+		visibility: hidden;
+		top: 3dvh;
+		right: 5dvw;
+		width: 30px;
+		height: 30px;
+		background-color: transparent;
+		z-index: 1;
+		backdrop-filter: blur(10px);
+		border-top-color: oklch(from var(--accent-color) l c h / 0.75);
+		border-left-color: oklch(from var(--accent-color) l c h / 0.75);
+
+		&:active {
+			border-color: transparent oklch(from var(--accent-color) l c h / 0.75)
+				oklch(from var(--accent-color) l c h / 0.75) transparent;
+		}
+
+		&::before,
+		&::after {
+			content: '';
+			position: absolute;
+			display: block;
+			width: 60%;
+			height: 2px;
+			background-color: var(--white);
+			border-radius: 3px;
+			transition: transform 0.3s;
+			border-radius: 3px;
+			z-index: 2;
+		}
+
+		&::before {
+			top: 30%;
+			left: 20%;
+		}
+
+		&::after {
+			bottom: 30%;
+			left: 20%;
+		}
+
+		:root.mobileMenuOpen &::before {
+			transform: rotate(45deg) translate(4px, 4px);
+		}
+
+		:root.mobileMenuOpen &::after {
+			transform: rotate(-45deg) translate(4px, -4px);
+		}
+
+		@media (max-width: 768px) {
+			display: flex;
+			visibility: visible;
+			padding: 1rem;
+			gap: 0.5rem;
+			flex-direction: column;
+			color: transparent;
+			border-radius: 0.5rem;
+			cursor: pointer;
+		}
 	}
 
 	a {
 		text-decoration: none;
-		color: white;
+		color: var(--white);
 
 		&:not(.home) {
 			font-size: 1rem;
 		}
+
+		/* Submenu nav links */
+		.divider ~ & {
+			font-size: 0.8rem;
+		}
 	}
 
 	.home {
-		margin-left: 2rem;
-		color: white;
+		color: var(--white);
 		text-decoration: none;
 		font-size: 1.5rem;
-		font-weight: 300;
-		/* letter-spacing: 3px; */
+		font-weight: 200;
 	}
 
 	.active {
-		background-image: repeating-linear-gradient(
-			to right,
-			#a2682a 0%,
-			#be8c3c 8%,
-			#be8c3c 18%,
-			#d3b15f 27%,
-			/* #faf0a0 35%, */ /* #ffffc2 40%, */ /* #faf0a0 50%, */ #d3b15f 58%,
-			#be8c3c 67%,
-			#b17b32 77%,
-			#bb8332 83%,
-			#d4a245 88%,
-			#e1b453 93%,
-			#a4692a 100%
-		);
-		background-size: 150%;
+		background: var(--accent-color);
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
 		background-clip: text;
-		filter: drop-shadow(0 0 1px rgba(255, 200, 0, 0.3));
-		animation: MoveBackgroundPosition 6s ease-in-out infinite;
+	}
+
+	.divider {
+		width: 50%;
+		height: 1px;
+		background-color: var(--accent-color);
+		margin-block: 1.5rem;
+		transform-origin: right;
+		transform: scaleX(0);
+
+		&.hasSubmenu {
+			animation: scaleX 1s forwards;
+		}
 	}
 </style>

@@ -2,4 +2,86 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title='Music'> Music </Layout>
+<Layout title='Contacts'>
+	<article>
+		<p>
+			Feel free to reach out to me for <span class='highlight'>collaborations</span>, <span
+				class='highlight'>bookings</span
+			>, or just to <span class='highlight'>say hi</span>. I'm looking forward to hearing from you!<br
+			/><br />
+
+			You can also write me at <em>henrikke.havaas at gmail.com</em>.
+		</p>
+
+		<form action='https://api.web3forms.com/submit' method='POST'>
+			<input type='hidden' name='access_key' value='YOUR_ACCESS_KEY_HERE' />
+			<label>
+				Name
+				<input type='text' name='name' required />
+			</label>
+
+			<label>
+				Email
+				<input type='email' name='email' required />
+			</label>
+
+			<label>
+				Message
+				<textarea name='message' rows='7' required></textarea>
+			</label>
+
+			<input type='checkbox' name='botcheck' style='display: none;' />
+
+			<button type='submit'>Send</button>
+		</form>
+	</article>
+</Layout>
+<style>
+	article {
+		display: flex;
+		height: 100%;
+		width: clamp(50%, 800px, 80%);
+		margin: auto;
+		flex-direction: column;
+		justify-content: center;
+		gap: 8dvh;
+		text-align: justify;
+	}
+
+	p {
+		font-weight: 200;
+	}
+
+	form {
+		font-weight: 300;
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+		opacity: 0.85;
+		backdrop-filter: blur(300px);
+	}
+
+	label {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+
+	input,
+	textarea {
+		padding: 0.5rem;
+		border: 1px solid #ccc;
+		border-radius: 4px;
+		accent-color: var(--accent-color);
+	}
+
+	button {
+		padding: 0.5rem 1rem;
+		background-color: var(--accent-color);
+		color: var(--black);
+		border: none;
+		border-radius: 4px;
+		cursor: pointer;
+		accent-color: inherit;
+	}
+</style>

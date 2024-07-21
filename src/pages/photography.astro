@@ -1,0 +1,124 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+
+const imagesAbstractVisions = import.meta.glob<{ default: ImageMetadata }>(
+	'@images/photography/abstract_visions/*.{jpeg,jpg,JPG,png,gif}'
+);
+const imagesLarvik = import.meta.glob<{ default: ImageMetadata }>(
+	'@images/photography/larvik_ocean/*.{jpeg,jpg,JPG,png,gif}'
+);
+const imagesMaternity = import.meta.glob<{ default: ImageMetadata }>(
+	'@images/photography/maternity/*.{jpeg,jpg,JPG,png,gif}'
+);
+const imagesNude = import.meta.glob<{ default: ImageMetadata }>(
+	'@images/photography/nude/*.{jpeg,jpg,JPG,png,gif}'
+);
+const imagesPortraits = import.meta.glob<{ default: ImageMetadata }>(
+	'@images/photography/portraits/*.{jpeg,jpg,JPG,png,gif}'
+);
+const imagesTravels = import.meta.glob<{ default: ImageMetadata }>(
+	'@images/photography/travels/*.{jpeg,jpg,JPG,png,gif}'
+);
+const imagesPress = import.meta.glob<{ default: ImageMetadata }>(
+	'@images/photography/press/*.{jpeg,jpg,JPG,png,gif,avif}'
+);
+---
+
+<Layout title='Visual Art'>
+	<article>
+		<span id='photography-abstract-visions'>Abstract Visions</span>
+
+		{
+			Object.values(imagesAbstractVisions).map((value) => {
+				return <Image src={value?.()} alt='ss' class='image' />;
+			})
+		}
+
+		<span id='photography-larvik'>Larvik Ocean</span>
+
+		{
+			Object.values(imagesLarvik).map((value) => {
+				return <Image src={value?.()} alt='ss' class='image' />;
+			})
+		}
+
+		<span id='photography-maternity'>Maternity</span>
+
+		{
+			Object.values(imagesMaternity).map((value) => {
+				return <Image src={value?.()} alt='ss' class='image' />;
+			})
+		}
+
+		<span id='photography-nude'>Nude</span>
+
+		{
+			Object.values(imagesNude).map((value) => {
+				return <Image src={value?.()} alt='ss' class='image' />;
+			})
+		}
+
+		<span id='photography-portraits'>Portraits</span>
+
+		{
+			Object.values(imagesPortraits).map((value) => {
+				return <Image src={value?.()} alt='ss' class='image' />;
+			})
+		}
+
+		<span id='photography-travels'>Travels</span>
+
+		{
+			Object.values(imagesTravels).map((value) => {
+				return <Image src={value?.()} alt='ss' class='image' />;
+			})
+		}
+
+		<span id='photography-press'>Press</span>
+
+		{
+			Object.values(imagesPress).map((value) => {
+				return <Image src={value?.()} alt='ss' class='image' />;
+			})
+		}
+	</article>
+</Layout>
+<style>
+	article {
+		display: flex;
+		width: min(80%, 80ch);
+		margin-inline: auto;
+		gap: 1rem;
+		flex-direction: column;
+		align-items: center;
+		overflow-x: hidden;
+	}
+
+	.image {
+		width: 100%;
+		height: auto;
+	}
+
+	span {
+    margin-block: 1rem;
+		color: var(--accent-color);
+		text-shadow:
+			0 0 5px var(--accent-color),
+			0 0 10px var(--accent-color);
+
+		&:before {
+			content: '';
+			display: block;
+			height: 1px;
+			width: 100%;
+			margin-bottom: 0.3rem;
+			background-color: var(--accent-color);
+			transition: scale 3s;
+		}
+
+		&:target::before {
+			scale: 15 1;
+		}
+	}
+</style>

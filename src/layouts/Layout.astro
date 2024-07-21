@@ -8,6 +8,7 @@ interface Props {
 }
 
 const { title } = Astro.props;
+const showMainBackground = title === 'About';
 ---
 
 <!doctype html>
@@ -19,17 +20,10 @@ const { title } = Astro.props;
 		<link rel='icon' type='image/svg+xml' href='/favicon.svg' />
 		<meta name='generator' content={Astro.generator} />
 
-		<!-- <link rel='preconnect' href='https://fonts.googleapis.com' />
-		<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
-		<link
-			href='https://fonts.googleapis.com/css2?family=Josefin+Slab:ital,wght@0,100..700;1,100..700&display=swap'
-			rel='stylesheet'
-		/> -->
-
 		<link rel='preconnect' href='https://fonts.googleapis.com' />
 		<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
 		<link
-			href='https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700'
+			href='https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap'
 			rel='stylesheet'
 		/>
 
@@ -38,7 +32,7 @@ const { title } = Astro.props;
 	</head>
 	<body>
 		<Navigation />
-		<main>
+		<main class:list={[{ withBackground: showMainBackground }]}>
 			<slot />
 		</main>
 		<Footer />
@@ -93,29 +87,64 @@ const { title } = Astro.props;
 			/* 👆 CSS Reset */
 
 			html {
-				font-family: quicksand, system-ui, sans-serif;
-				color: white;
+				--white: #f5f5f5;
+				--black: #222222;
+				--accent-color: #fbbfbe;
+
+				font-family: Poppins, system-ui, sans-serif;
+				color: var(--white);
 				background-color: black;
-				scroll-behavior: smooth;
+				font-weight: 200;
 			}
 
 			body {
-				display: flex;
-				flex-direction: column;
+				display: grid;
 				margin: 0;
-				background-image: url('/henrikke_homepage.jpg');
+				background-image: url('/henrikkehavaas/henrikke_homepage.jpg');
 				background-size: cover;
 				background-repeat: no-repeat;
 				background-attachment: fixed;
 				background-position: center;
 				height: 100dvh;
+
+				@media (min-width: 769px) {
+					grid-template-columns: 1fr max-content;
+					grid-template-areas:
+						'content nav'
+						'content footer';
+				}
+
+				@media (max-width: 768px) {
+					grid-template-columns: 1fr;
+					grid-template-areas: 'content';
+				}
 			}
 
 			main {
-				flex: 1;
+				grid-area: content;
+				padding-block: 5dvh;
 				scroll-behavior: smooth;
+				overflow-x: hidden;
 				overflow-y: scroll;
 				scrollbar-width: none;
+				transition: filter 0.3s;
+				scroll-padding-block: 1rem;
+
+				:root.mobileMenuOpen & {
+					filter: blur(70px);
+				}
+
+				&.withBackground {
+					background: url('/henrikkehavaas/henrikke_vertical.jpg');
+					background-size: cover;
+					background-repeat: no-repeat;
+					background-attachment: fixed;
+					background-position: left;
+				}
+			}
+
+			.highlight {
+				font-weight: 600;
 			}
 		</style>
 	</body>

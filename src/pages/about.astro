@@ -2,145 +2,157 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title='Music'>
+<Layout title='About'>
 	<article>
-		<div class='textWrapper'>
+		<div class='empty'></div>
+		<div class='pWrapper'>
 			<p>
-				<span class='highlight'>Henrii Havaas</span> was born in <span class='highlight'>Oslo</span
-				>, Norway, and discovered the joy of photography as a young girl.
-
-				<p>
-					Everything she knows about <span class='highlight'>photography</span> is self-taught. She has
-					a special eye for capturing a truthful essence of nature and people in her photos. Natural
-					light is her favorite style to use and to create images, that exude purity, liveliness, and
-					simplicity.
-				</p>
-
-				<p>
-					She focuses on <span class='highlight'>Fine Art Photography</span> and is driven by storytelling
-					and authenticity.
-				</p>
-
-				<p>
-					In addition to being a photographer, she is also a <span class='highlight'
-						>music designer</span
-					>, <span class='highlight'>embodiment teacher</span> and
-					<span class='highlight'>facilitator of art and culture events</span>.
-				</p>
-
-				<p>
-					Henrii is currently based in Oslo and part of the Selah Sleep team, a wake-up light and
-					sound project.
-				</p>
+				<span class='highlight'>Henrikke Havaas</span>, born in <span class='highlight'>Oslo</span>,
+				Norway, is a multidisciplinary artist and sound consultant who weaves her creative vision
+				through <span class='highlight'>music</span>, <span class='highlight'>photography</span>,
+				and <span class='highlight'>sonic environments</span>. Drawing inspiration from her
+				classical piano training at the music conservatoire and her deep connection to nature,
+				Henrikke expresses herself as both an artist and a professional sound curator.
 			</p>
 		</div>
 
-		<div class='textWrapper'>
+		<div class='pWrapper'>
 			<p>
-				<span class='highlight'>Henrii Havaas</span> was born in <span class='highlight'>Oslo</span
-				>, Norway, and discovered the joy of photography as a young girl.
+				As a <span class='highlight'>DJ</span> performing under the name <span class='highlight'
+					>Henrii Havaas</span
+				>, she crafts journeys that traverse <span class='highlight'>ambient</span>,
+				<span class='highlight'>techno</span>, and euphoric soundscapes. Her sets are a seductive
+				fusion of groovy rhythms, playful cuts, <span class='highlight'>hypnotic</span> elements, and
+				deep atmospheres. Influenced by meditative experiences, Henrikke approaches DJing as <span
+					class='highlight'>painting with sound</span
+				>, creating dynamic, storytelling-like mixes unbound by genre. Her performances guide
+				listeners through a range of energies, offering opportunities for both transcendence on the
+				dance floor and introspection during deep listening sessions.
+			</p>
+		</div>
 
-				<p>
-					Everything she knows about <span class='highlight'>photography</span> is self-taught. She has
-					a special eye for capturing a truthful essence of nature and people in her photos. Natural
-					light is her favorite style to use and to create images, that exude purity, liveliness, and
-					simplicity.
-				</p>
+		<!-- <div class='pWrapper'>
+			<p>
+				Henrikke runs and organises <span class='highlight'>Nature's Nest Collective</span>, a
+				series of relaxation experiences in the landscape of ambient music and the arts.
+			</p>
+		</div> -->
+		<div class='pWrapper'>
+			<p>
+				Henrikke runs and organises <span class='highlight'>Nature's Nest Collective</span>, a
+				series of relaxation experiences in the landscape of ambient music and the arts.
+			</p>
+		</div>
 
-				<p>
-					She focuses on <span class='highlight'>Fine Art Photography</span> and is driven by storytelling
-					and authenticity.
-				</p>
+		<div class='pWrapper'>
+			<p>
+				Henrikke's take on music has earned her spots at prestigious festivals such as <span
+					class='highlight'>Boom</span
+				>, <span class='highlight'>Ozora</span>, and <span class='highlight'>Monument</span>, as
+				well as a residency at the <span class='highlight'>OMG</span> events in Norway. In parallel with
+				her musical endeavors, Henrikke is a <span class='highlight'>self-taught photographer</span>
+				with a keen eye for capturing the essence of her subjects. Favoring natural light, she creates
+				images that exude purity, liveliness, and simplicity across illustration, portraiture, fine art,
+				and event photography.
+			</p>
+		</div>
 
-				<p>
-					In addition to being a photographer, she is also a <span class='highlight'
-						>music designer</span
-					>, <span class='highlight'>embodiment teacher</span> and
-					<span class='highlight'>facilitator of art and culture events</span>.
-				</p>
+		<div class='pWrapper'>
+			<p>
+				Bridging her artistic practice with <span class='highlight'>professional consultancy</span>,
+				Henrikke works as a sound consultant and <span class='highlight'>music curator</span>. In
+				this role, she is deeply committed to enhancing the human experience through sound,
+				collaborating with individuals, businesses, organizations, and <span class='highlight'
+					>healthcare</span
+				> centers to improve quality of life. Her expertise has benefited numerous nursing homes in Norway,
+				the Senter for <span class='highlight'>Livshjelp therapy center</span> run by Audun Myskja, sport
+				athletes training programs for <span class='highlight'>UFC</span>, adventurers like Siv
+				Harstad and <span class='highlight'>Håkon William Skog Erlandsen</span>, the luxury
+				expedition tour White Desert in Antarctica, and <span class='highlight'>Scandic hotels</span
+				>, among others. Henrikke's experience extends into the wellness and tech sectors,
+				highlighted by her work as a consultant and sound producer <span class='highlight'
+					>for Selah Sleep</span
+				>, an innovative sleep device. This project showcases her ability to apply her musical
+				expertise to cutting-edge wellness technology, further demonstrating the breadth of her
+				skills in music design for various industries.
+			</p>
+		</div>
 
-				<p>
-					Henrii is currently based in Oslo and part of the Selah Sleep team, a wake-up light and
-					sound project.
-				</p>
+		<div class='pWrapper'>
+			<p>
+				Whether playing a DJ set, capturing a moment through her lens, or designing a sonic
+				landscape for a client, <span class='highlight'
+					>Henrikke's approach is always collaborative and tailored</span
+				>. She works closely with each project to create atmospheres and experiences that resonate
+				deeply with the intended goals, blending her artistic sensibility with practical expertise.
 			</p>
 		</div>
 	</article>
 </Layout>
+
 <style>
-	@keyframes fadeInFromBottom {
+	@keyframes comeFromRight {
 		from {
-			transform: translateY(10px);
 			opacity: 0;
+			translate: 5dvw 0;
 		}
+
 		to {
-			transform: translateY(0);
 			opacity: 1;
+			translate: 0 0;
 		}
 	}
-
-	@keyframes fadeInFromTop {
+	@keyframes comeFromLeft {
 		from {
-			transform: translateY(-10px);
 			opacity: 0;
+			translate: -5dvw 0;
 		}
+
 		to {
-			transform: translateY(0);
 			opacity: 1;
+			translate: 0 0;
 		}
 	}
 
 	article {
 		display: flex;
-		height: 100%;
-		padding: 0 2rem;
+		gap: 6vh;
+		flex-direction: column;
 		justify-content: center;
 		align-items: center;
 	}
 
-	.textWrapper {
-		max-width: 450px;
-		padding: 5rem;
-		border-inline: 1px solid transparent;
-		border-image: linear-gradient(
-				to bottom,
-				#a2682a 0%,
-				#be8c3c 8%,
-				#be8c3c 18%,
-				#d3b15f 27%,
-				/* #faf0a0 35%, */ /* #ffffc2 40%, */ /* #faf0a0 50%, */ #d3b15f 58%,
-				#be8c3c 67%,
-				#b17b32 77%,
-				#bb8332 83%,
-				#d4a245 88%,
-				#e1b453 93%,
-				#a4692a 100%
-			)
-			1;
-		background: linear-gradient(
-			to bottom,
-			transparent 0%,
-			rgba(0, 0, 0, 0.5) 50%,
-			transparent 100%
-		);
+	.empty {
+		height: 85dvh;
+	}
 
-		&:nth-child(1) {
-			animation: fadeInFromTop 0.5s;
+	.pWrapper {
+		width: 100%;
+		padding: 1dvh 5dvw;
+		backdrop-filter: blur(10px);
+		font-weight: 300;
+
+		animation-timeline: view(block 95% 10%);
+		animation-fill-mode: both;
+		animation-duration: 1ms; /* For Firefox */
+
+		&:nth-child(odd) {
+			color: var(--accent-color);
+			background-color: oklch(from black l c h / 0.75);
+			animation-name: comeFromRight;
 		}
 
-		&:nth-child(2) {
-			animation: fadeInFromBottom 0.5s;
-			margin-left: -1px;
-			margin-top: 10rem;
+		&:nth-child(even) {
+			color: var(--black);
+			background-color: oklch(from var(--accent-color) l c h / 0.55);
+			animation-name: comeFromLeft;
 		}
 	}
 
 	p {
+		max-width: 60ch;
+		margin-inline: auto;
 		font-size: 1.1rem;
 		text-align: justify;
-	}
-
-	.highlight {
-		font-weight: 700;
 	}
 </style>
