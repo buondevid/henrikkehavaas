@@ -104,35 +104,6 @@ import Layout from '../layouts/Layout.astro';
 	</article>
 </Layout>
 
-<script>
-	document.addEventListener('scroll', () => {
-    console.log('scrolling');
-		const iframes = document.querySelectorAll('iframe');
-		const hamburger = document.querySelector('.hamburger');
-
-		iframes.forEach((iframe, i) => {
-			if (doElementsOverlap(iframe, hamburger)) {
-				// disable pointer events on iframe
-				console.log('overlapping ${i}');
-				iframe.style.pointerEvents = 'none';
-			}
-		});
-	});
-
-	const doElementsOverlap = (elementA: any, elementB: any) => {
-		const A = elementA.getBoundingClientRect();
-		const B = elementB.getBoundingClientRect();
-		return (
-			((A.top < B.bottom && A.top >= B.top) ||
-				(A.bottom > B.top && A.bottom <= B.bottom) ||
-				(A.bottom >= B.bottom && A.top <= B.top)) &&
-			((A.left < B.right && A.left >= B.left) ||
-				(A.right > B.left && A.right <= B.right) ||
-				(A.left < B.left && A.right > B.right))
-		);
-	};
-</script>
-
 <style>
 	article {
 		display: flex;
