@@ -9,6 +9,10 @@ interface Props {
 
 const { title } = Astro.props;
 const showMainBackground = title === 'About';
+
+const isDevelopment = import.meta.env.DEV;
+const backgroundBodyUrl = `url(${isDevelopment ? '/henrikkehavaas' : ''}/henrikke_homepage.jpg)`;
+const backgroundMainUrl = `url(${isDevelopment ? '/henrikkehavaas' : ''}/henrikke_vertical.jpg)`;
 ---
 
 <!doctype html>
@@ -37,7 +41,7 @@ const showMainBackground = title === 'About';
 		</main>
 		<Footer />
 
-		<style is:global>
+		<style is:global define:vars={{ backgroundBodyUrl, backgroundMainUrl }}>
 			/* 👇 CSS Reset */
 			*,
 			*::before,
@@ -100,7 +104,7 @@ const showMainBackground = title === 'About';
 			body {
 				display: grid;
 				margin: 0;
-				background-image: url('/henrikke_homepage.jpg');
+				background-image: var(--backgroundBodyUrl);
 				background-size: cover;
 				background-repeat: no-repeat;
 				background-attachment: fixed;
@@ -135,7 +139,7 @@ const showMainBackground = title === 'About';
 				}
 
 				&.withBackground {
-					background: url('/henrikke_vertical.jpg');
+					background: var(--backgroundMainUrl);
 					background-size: cover;
 					background-repeat: no-repeat;
 					background-attachment: fixed;

@@ -1,7 +1,5 @@
 ---
 const pathname = new URL(Astro.request.url).pathname;
-const currentPath = pathname.slice(1);
-console.log('🔥 ~ currentPath:', currentPath);
 
 const isMusic = pathname.includes('music');
 const isPhotography = pathname.includes('photography');
@@ -11,15 +9,15 @@ const hasSubmenu = isMusic || isPhotography;
 
 <button type='button' aria-label='Toggle Navigation' class='hamburger'></button>
 <nav id='main-nav'>
-	<a class:list={[{ active: currentPath === '' }]} href='/henrikkehavaas/' class='home'
+	<a class:list={[{ active: pathname === '/henrikkehavaas/' }]} href='/henrikkehavaas/' class='home'
 		>HENRIKKE HAVAAS</a
 	>
-	<a class:list={[{ active: currentPath === 'about' }]} href='/henrikkehavaas/about'>About</a>
-	<a class:list={[{ active: currentPath === 'music' }]} href='/henrikkehavaas/music'>Music</a>
-	<a class:list={[{ active: currentPath === 'photography' }]} href='/henrikkehavaas/photography'
+	<a class:list={[{ active: pathname.includes('about') }]} href='/henrikkehavaas/about'>About</a>
+	<a class:list={[{ active: pathname.includes('music') }]} href='/henrikkehavaas/music'>Music</a>
+	<a class:list={[{ active: pathname.includes('photography') }]} href='/henrikkehavaas/photography'
 		>Photography</a
 	>
-	<a class:list={[{ active: currentPath === 'contacts' }]} href='/henrikkehavaas/contacts'
+	<a class:list={[{ active: pathname.includes('contacts') }]} href='/henrikkehavaas/contacts'
 		>Contacts</a
 	>
 	<span class:list={['divider', { hasSubmenu }]}></span>
@@ -53,12 +51,15 @@ const hasSubmenu = isMusic || isPhotography;
 		'astro:page-load',
 		() => {
 			const hamburger = document.querySelector('.hamburger');
-
 			const toggleMobileMenu = (event) => {
 				document.documentElement.classList.toggle('mobileMenuOpen');
 			};
-
 			hamburger.addEventListener('click', toggleMobileMenu);
+
+			const main = document.querySelector('main');
+			main.addEventListener('click', () => {
+				document.documentElement.classList.remove('mobileMenuOpen');
+			});
 		},
 		{ once: true }
 	);
