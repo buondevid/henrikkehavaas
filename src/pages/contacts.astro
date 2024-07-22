@@ -13,8 +13,7 @@ import Layout from '../layouts/Layout.astro';
 			You can also write me at <em>henrikke.havaas at gmail.com</em>.
 		</p>
 
-		<form action='https://api.web3forms.com/submit' method='POST'>
-			<input type='hidden' name='access_key' value='YOUR_ACCESS_KEY_HERE' />
+		<form action='https://formsubmit.co/henrikke.havaas@gmail.com' method='POST'>
 			<label>
 				Name
 				<input type='text' name='name' required />
@@ -30,7 +29,12 @@ import Layout from '../layouts/Layout.astro';
 				<textarea name='message' rows='7' required></textarea>
 			</label>
 
-			<input type='checkbox' name='botcheck' style='display: none;' />
+			<input
+				type='hidden'
+				name='_next'
+				value='https://buondevid.github.io/henrikkehavaas/contacts/'
+			/>
+			<input type='hidden' name='_subject' value='New message from artist website!' />
 
 			<button type='submit'>Send</button>
 		</form>
