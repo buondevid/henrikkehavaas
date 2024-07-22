@@ -9,8 +9,10 @@ const hasSubmenu = isMusic || isPhotography;
 
 <button type='button' aria-label='Toggle Navigation' class='hamburger'></button>
 <nav id='main-nav'>
-	<a class:list={[{ active: pathname === '/henrikkehavaas/' }]} href='/henrikkehavaas/' class='home'
-		>HENRIKKE HAVAAS</a
+	<a
+		class:list={[{ active: pathname === '/henrikkehavaas/' || pathname === '/henrikkehavaas' }]}
+		href='/henrikkehavaas/'
+		class='home'>HENRIKKE HAVAAS</a
 	>
 	<a class:list={[{ active: pathname.includes('about') }]} href='/henrikkehavaas/about'>About</a>
 	<a class:list={[{ active: pathname.includes('music') }]} href='/henrikkehavaas/music'>Music</a>
